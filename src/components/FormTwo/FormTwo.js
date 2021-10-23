@@ -1,31 +1,39 @@
-import { Button, Form, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const FormTwo = () => {
   return (
-    <div className="App formTwo">
-      <h1>FORM</h1>
-      <Form>
-        <Form.Group className="mb-2">
-          <Row>
-            <Form.Label>Username</Form.Label>
-            <Form.Control placeholder="Username" required />
-          </Row>
-        </Form.Group>
-        <Form.Group className="mb-2" controlId="formBasicPassword">
-          <Row>
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" required />
-            <Form.Label>Repeat Password</Form.Label>
-            <Form.Control type="" placeholder="Repeat Password" />
-          </Row>
-        </Form.Group>
-
-        <Button variant="outline-primary" type="submit">
-          Submit
-        </Button>
-      </Form>
-    </div>
+    <form>
+      <div className="App formTwo">
+        <h1>FORM</h1>
+        <div className="mb-2 col-sm-10">
+          <label htmlFor="username" className="form-label">
+            UserName
+          </label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            className="form-control"
+            placeholder="UserName"
+            autoComplete="off"
+            required
+          />
+        </div>
+        <label for="inputPassword2" class="col-sm-2 col-form-label">
+          Password
+        </label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="inputPassword2" />
+        </div>
+        <label for="inputPassword3" class="col-sm-2 col-form-label">
+          Password
+        </label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="inputPassword3" />
+        </div>
+        <input type="submit" value="Submit" className="btn btn-primary" />
+      </div>
+    </form>
   );
 };
 
