@@ -1,40 +1,67 @@
-import { Button, Form, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const FormOne = () => {
   return (
-    <div className="App formOne">
-      <h1>FORM</h1>
-      <Form>
-        <Form.Group className="mb-2">
-          <Row>
-            <Form.Label>Name</Form.Label>
-            <Form.Control placeholder="First name" required />
-          </Row>
-          <Row>
-            <Form.Label>Surname</Form.Label>
-            <Form.Control placeholder="Second name" required />
-          </Row>
-          <Row>
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" required />
-          </Row>
-          <Row>
-            <Form.Label>Select Date</Form.Label>
-            <Form.Control
-              type="date"
-              name="name"
-              id="name"
-              placeholder="Date of Birth"
-              required
-            />
-          </Row>
-        </Form.Group>
-        <Button variant="outline-primary" type="submit">
-          Submit
-        </Button>
-      </Form>
-    </div>
+    <form>
+      <h1>Form</h1>
+      <div className="mb-2 col-sm-10">
+        <label htmlFor="first-name" className="form-label">
+          First Name
+        </label>
+        <input
+          type="text"
+          name="first-name"
+          id="name"
+          className="form-control"
+          placeholder="Name"
+          autoComplete="off"
+          required
+        />
+      </div>
+      <div className="mb-2 col-sm-10">
+        <label htmlFor="last-name" className="form-label">
+          Last name
+        </label>
+        <input
+          type="text"
+          name="last-name"
+          id="last-name"
+          className="form-control"
+          placeholder="Enter your last name"
+          autoComplete="off"
+          required
+        />
+      </div>
+      <div className="mb-2 col-sm-10">
+        <label htmlFor="birthday" className="form-label">
+          Birthday
+        </label>
+        <input
+          type="date"
+          name="birthday"
+          id="birthday"
+          className="form-control"
+          placeholder="birthday"
+          autoComplete="off"
+          required
+        />
+      </div>
+      <div className="mb-3 col-sm-10">
+        <label htmlFor="email" className="form-label">
+          Email
+        </label>
+        <input
+          type="email"
+          name="email"
+          className="form-control"
+          id="email"
+          placeholder="Enter your email"
+          autoComplete="off"
+          required
+        />
+      </div>
+      <input type="submit" value="Submit" className="btn btn-primary" />
+    </form>
   );
 };
 

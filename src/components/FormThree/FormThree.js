@@ -3,9 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const FormThree = () => {
   return (
-    <div className="App formThree">
-      <h1>FORM</h1>
-      <Form>
+    <form>
+      <div className="App formThree">
+        <h1>FORM</h1>
+
         <Form.Group className="mb-2">
           <Row>
             <Form.Label>Username</Form.Label>
@@ -20,8 +21,8 @@ const FormThree = () => {
             <Form.Control type="" placeholder="Repeat Password" />
           </Row>
         </Form.Group>
-      </Form>
-    </div>
+      </div>
+    </form>
   );
 };
 
