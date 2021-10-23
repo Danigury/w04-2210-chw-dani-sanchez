@@ -23,7 +23,8 @@ const FormOne = () => {
             <Form.Label>Select Date</Form.Label>
             <Form.Control
               type="date"
-              name="dob"
+              name="name"
+              id="name"
               placeholder="Date of Birth"
               required
             />
