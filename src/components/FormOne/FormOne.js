@@ -1,16 +1,17 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const FormOne = () => {
+  const years = false;
   return (
     <form>
       <h1>Personal data</h1>
       <div className="mb-2 col-sm-10">
-        <label htmlFor="first-name" className="form-label">
+        <label htmlFor="name" className="form-label">
           First Name
         </label>
         <input
           type="text"
-          name="first-name"
+          name="name"
           id="name"
           className="form-control"
           placeholder="Name"
@@ -45,6 +46,7 @@ const FormOne = () => {
           autoComplete="off"
           required
         />
+        {years ? <p> You have {years} years.</p> : ""}
       </div>
       <div className="mb-2 col-sm-10">
         <label htmlFor="email" className="form-label">
@@ -60,12 +62,12 @@ const FormOne = () => {
           required
         />
       </div>
-      <button
+      <input
         type="submit"
+        value="Submit"
         className="btn btn-outline-primary d-block w-10 m-2"
-      >
-        Submit
-      </button>
+        onClick={() => {}}
+      />
     </form>
   );
 };

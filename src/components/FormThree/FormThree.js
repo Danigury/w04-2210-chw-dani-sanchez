@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useState } from "react";
 
 const FormThree = () => {
   return (
@@ -41,12 +42,12 @@ const FormThree = () => {
           Remember password
         </label>
       </div>
-      <button
+      <input
         type="submit"
+        value="Submit"
         className="btn btn-outline-primary d-block w-10 m-2"
-      >
-        Log In
-      </button>
+        onClick={() => {}}
+      />
     </form>
   );
 };

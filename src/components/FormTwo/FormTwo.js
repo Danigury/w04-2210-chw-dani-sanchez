@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useState } from "react";
 
 const FormTwo = () => {
   return (
@@ -42,18 +43,18 @@ const FormTwo = () => {
           required
         />
       </div>
-      <button
+      <input
         type="submit"
+        value="Submit"
         className="btn btn-outline-primary d-block w-10 m-2"
-      >
-        Next
-      </button>
-      <button
+        onClick={() => {}}
+      />
+      <input
         type="submit"
+        value="Previous"
         className="btn btn-outline-secondary d-block w-10 m-2"
-      >
-        Previous
-      </button>
+        onClick={() => {}}
+      />
     </form>
   );
 };
