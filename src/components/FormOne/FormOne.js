@@ -8,6 +8,7 @@ const FormOne = () => {
     event.preventDefault();
     nextPage();
   };
+
   const years = false;
   return (
     <form className="form" onSubmit={handleSubmit}>

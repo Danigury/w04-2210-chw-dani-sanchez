@@ -1,8 +1,24 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import Context from "../Context/Context";
+import { useContext } from "react";
 
 const FormTwo = () => {
+  const { nextPage, previousPage, userData, onChange } = useContext(Context);
+
+  const previousOnClick = () => {
+    previousPage();
+  };
+
+  const handleSubmit = () => {
+    if (userData.password !== userData.repeatPassword) {
+      userData.repeatPassword = "";
+    } else {
+      nextPage();
+    }
+  };
+
   return (
-    <form>
+    <form className="form" onSubmit={handleSubmit}>
       <h1>Create your Username</h1>
       <div className="mb-2 col-sm-10">
         <label htmlFor="username" className="form-label">
@@ -10,11 +26,12 @@ const FormTwo = () => {
         </label>
         <input
           type="text"
-          name="username"
+          value={userData.username}
           id="username"
           className="form-control"
           placeholder="UserName"
           autoComplete="off"
+          onChange={onChange}
           required
         />
       </div>
@@ -24,9 +41,10 @@ const FormTwo = () => {
         </label>
         <input
           type="password"
-          name="password"
+          value={userData.password}
           className="form-control"
           id="password"
+          onChange={onChange}
           required
         />
       </div>
@@ -36,23 +54,23 @@ const FormTwo = () => {
         </label>
         <input
           type="repeat-password"
-          name="repeat-password"
+          value={userData.repeatPassword}
           className="form-control"
           id="repeat-password"
+          onChange={onChange}
           required
         />
       </div>
       <input
-        type="submit"
+        type="button"
         value="Submit"
         className="btn btn-outline-primary d-block w-10 m-2"
-        onClick={() => {}}
+        onClick={previousOnClick}
       />
       <input
         type="submit"
         value="Previous"
         className="btn btn-outline-secondary d-block w-10 m-2"
-        onClick={() => {}}
       />
     </form>
   );
