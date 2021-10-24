@@ -5,7 +5,7 @@ import UserDetails from "../UserDetails/UserDetails";
 
 const FormThree = () => {
   const { previousPage, userData, onChange } = useContext(Context);
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(false);
   const previousOnClick = () => {
     previousPage();
   };
@@ -17,7 +17,6 @@ const FormThree = () => {
       userData.username === userData.usernameLogin &&
       userData.password === userData.passwordLogin
     ) {
-      setError(false);
       setShowingDetails(true);
     } else {
       setError(true);
@@ -28,13 +27,13 @@ const FormThree = () => {
     <form className="form" onSubmit={handleSubmit}>
       <h1>Log In</h1>
       <div className="mb-2 col-sm-10">
-        <label htmlFor="username" className="form-label">
+        <label htmlFor="nombreUsuarioLogin" className="form-label">
           Username
         </label>
         <input
           type="text"
           value={userData.usernameLogin}
-          id="username"
+          id="nombreUsuarioLogin"
           className="form-control"
           placeholder="Username"
           autoComplete="off"
@@ -43,14 +42,14 @@ const FormThree = () => {
         />
       </div>
       <div className="mb-2 col-sm-10">
-        <label htmlFor="password" className="col-sm-2 col-form-label">
+        <label htmlFor="contraseña" className="col-sm-2 col-form-label">
           Password
         </label>
         <input
           type="password"
           value={userData.passwordLogin}
           className="form-control"
-          id="password"
+          id="contraseña"
           onChange={onChange}
           required
         />
@@ -79,6 +78,7 @@ const FormThree = () => {
         onClick={previousOnClick}
       />
       {showingDetails ? <UserDetails /> : ""}
+      <pre>{JSON.stringify(userData, null, 2)}</pre>
     </form>
   );
 };

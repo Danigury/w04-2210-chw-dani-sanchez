@@ -23,7 +23,7 @@ function App() {
   });
 
   const nextPage = () => {
-    if (page === 0 && page < 2) {
+    if (page >= 0 && page < 2) {
       setPage(page + 1);
     }
   };
