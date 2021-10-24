@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const FormOne = () => {
   return (
     <form>
-      <h1>Form</h1>
+      <h1>Personal data</h1>
       <div className="mb-2 col-sm-10">
         <label htmlFor="first-name" className="form-label">
           First Name
@@ -46,7 +46,7 @@ const FormOne = () => {
           required
         />
       </div>
-      <div className="mb-3 col-sm-10">
+      <div className="mb-2 col-sm-10">
         <label htmlFor="email" className="form-label">
           Email
         </label>
@@ -60,7 +60,12 @@ const FormOne = () => {
           required
         />
       </div>
-      <input type="submit" value="Submit" className="btn btn-primary" />
+      <button
+        type="submit"
+        className="btn btn-outline-primary d-block w-10 m-2"
+      >
+        Submit
+      </button>
     </form>
   );
 };
