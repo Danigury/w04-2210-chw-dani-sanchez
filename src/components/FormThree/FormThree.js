@@ -1,14 +1,16 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import Context from "../Context/Context";
 import { useContext, useState } from "react";
+import UserDetails from "../UserDetails/UserDetails";
 
 const FormThree = () => {
-  const { nextPage, previousPage, userData, onChange } = useContext(Context);
+  const { previousPage, userData, onChange } = useContext(Context);
   const [error, setError] = useState(true);
   const previousOnClick = () => {
     previousPage();
   };
 
+  const [showingDetails, setShowingDetails] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
     if (
@@ -16,11 +18,12 @@ const FormThree = () => {
       userData.password === userData.passwordLogin
     ) {
       setError(false);
-      nextPage();
+      setShowingDetails(true);
     } else {
-      setError(false);
+      setError(true);
     }
   };
+
   return (
     <form className="form" onSubmit={handleSubmit}>
       <h1>Log In</h1>
@@ -75,6 +78,7 @@ const FormThree = () => {
         className="btn btn-outline-secondary d-block w-10 m-2"
         onClick={previousOnClick}
       />
+      {showingDetails ? <UserDetails /> : ""}
     </form>
   );
 };
