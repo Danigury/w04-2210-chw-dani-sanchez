@@ -9,7 +9,7 @@ import FormThree from "./components/FormThree/FormThree";
 
 function App() {
   const [page, setPage] = useState(0);
-  const [userData] = useState({
+  const [userData, setUserData] = useState({
     name: "",
     surname: "",
     bithdate: "",
@@ -31,6 +31,13 @@ function App() {
     if (page >= 1 && page <= 2) {
       setPage(page - 1);
     }
+  };
+
+  const OnChange = (event) => {
+    setUserData({
+      ...userData,
+      [event.target.id]: event.target.value,
+    });
   };
 
   return (
