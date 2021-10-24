@@ -1,8 +1,28 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import Context from "../Context/Context";
+import { useContext, useState } from "react";
 
 const FormThree = () => {
+  const { nextPage, previousPage, userData, onChange } = useContext(Context);
+  const [error, setError] = useState(true);
+  const previousOnClick = () => {
+    previousPage();
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (
+      userData.username === userData.usernameLogin &&
+      userData.password === userData.passwordLogin
+    ) {
+      setError(false);
+      nextPage();
+    } else {
+      setError(false);
+    }
+  };
   return (
-    <form>
+    <form className="form" onSubmit={handleSubmit}>
       <h1>Log In</h1>
       <div className="mb-2 col-sm-10">
         <label htmlFor="username" className="form-label">
@@ -10,11 +30,12 @@ const FormThree = () => {
         </label>
         <input
           type="text"
-          name="username"
+          value={userData.usernameLogin}
           id="username"
           className="form-control"
           placeholder="Username"
           autoComplete="off"
+          onChange={onChange}
           required
         />
       </div>
@@ -24,9 +45,10 @@ const FormThree = () => {
         </label>
         <input
           type="password"
-          name="password"
+          value={userData.passwordLogin}
           className="form-control"
           id="password"
+          onChange={onChange}
           required
         />
       </div>
@@ -41,11 +63,17 @@ const FormThree = () => {
           Remember password
         </label>
       </div>
+      {error ? <p>Username or Password are incorrect</p> : ""}
       <input
         type="submit"
         value="Submit"
         className="btn btn-outline-primary d-block w-10 m-2"
-        onClick={() => {}}
+      />
+      <input
+        type="button"
+        value="Previous"
+        className="btn btn-outline-secondary d-block w-10 m-2"
+        onClick={previousOnClick}
       />
     </form>
   );

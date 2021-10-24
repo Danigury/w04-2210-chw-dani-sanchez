@@ -1,19 +1,21 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import Context from "../Context/Context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 const FormTwo = () => {
   const { nextPage, previousPage, userData, onChange } = useContext(Context);
-
+  const [error, setError] = useState(true);
   const previousOnClick = () => {
     previousPage();
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     if (userData.password !== userData.repeatPassword) {
-      userData.repeatPassword = "";
-    } else {
+      setError(false);
       nextPage();
+    } else {
+      setError(true);
     }
   };
 
@@ -61,16 +63,18 @@ const FormTwo = () => {
           required
         />
       </div>
-      <input
-        type="button"
-        value="Submit"
-        className="btn btn-outline-primary d-block w-10 m-2"
-        onClick={previousOnClick}
-      />
+      {error ? <p>Password must be the same</p> : ""}
+
       <input
         type="submit"
+        value="Submit"
+        className="btn btn-outline-primary d-block w-10 m-2"
+      />
+      <input
+        type="button"
         value="Previous"
         className="btn btn-outline-secondary d-block w-10 m-2"
+        onClick={previousOnClick}
       />
     </form>
   );
