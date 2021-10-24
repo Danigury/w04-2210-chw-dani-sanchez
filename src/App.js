@@ -9,7 +9,7 @@ import FormThree from "./components/FormThree/FormThree";
 
 function App() {
   const [page, setPage] = useState(0);
-  const [userData, setUserData] = useState({
+  const [userData] = useState({
     name: "",
     surname: "",
     bithdate: "",

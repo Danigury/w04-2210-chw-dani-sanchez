@@ -1,5 +1,4 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useState } from "react";
 
 const FormTwo = () => {
   return (
@@ -19,8 +18,8 @@ const FormTwo = () => {
           required
         />
       </div>
-      <div class="mb-2 col-sm-10">
-        <label for="password" className="col-sm-2 col-form-label">
+      <div className="mb-2 col-sm-10">
+        <label htmlFor="password" className="col-sm-2 col-form-label">
           Password
         </label>
         <input
@@ -31,8 +30,8 @@ const FormTwo = () => {
           required
         />
       </div>
-      <div class="mb-2 col-sm-10">
-        <label for="repeat-password" className="col-sm-2 col-form-label">
+      <div className="mb-2 col-sm-10">
+        <label htmlFor="repeat-password" className="col-sm-2 col-form-label">
           Repeat Password
         </label>
         <input

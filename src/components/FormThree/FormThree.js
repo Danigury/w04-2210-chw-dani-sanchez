@@ -1,5 +1,4 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useState } from "react";
 
 const FormThree = () => {
   return (
@@ -19,8 +18,8 @@ const FormThree = () => {
           required
         />
       </div>
-      <div class="mb-2 col-sm-10">
-        <label for="password" className="col-sm-2 col-form-label">
+      <div className="mb-2 col-sm-10">
+        <label htmlFor="password" className="col-sm-2 col-form-label">
           Password
         </label>
         <input
@@ -31,14 +30,14 @@ const FormThree = () => {
           required
         />
       </div>
-      <div class="form-check">
+      <div className="form-check">
         <input
-          class="form-check-input"
+          className="form-check-input"
           type="checkbox"
           value=""
           id="flexCheckDefault"
         />
-        <label class="form-check-label" for="flexCheckDefault">
+        <label className="form-check-label" htmlFor="flexCheckDefault">
           Remember password
         </label>
       </div>
