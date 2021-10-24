@@ -1,9 +1,16 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useContext } from "react";
+import Context from "../Context/Context";
 
 const FormOne = () => {
+  const { nextPage, userData, onChange } = useContext(Context);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    nextPage();
+  };
   const years = false;
   return (
-    <form>
+    <form className="form" onSubmit={handleSubmit}>
       <h1>Personal data</h1>
       <div className="mb-2 col-sm-10">
         <label htmlFor="name" className="form-label">
@@ -11,25 +18,27 @@ const FormOne = () => {
         </label>
         <input
           type="text"
-          name="name"
+          value={userData.name}
           id="name"
           className="form-control"
           placeholder="Name"
           autoComplete="off"
+          onChange={onChange}
           required
         />
       </div>
       <div className="mb-2 col-sm-10">
-        <label htmlFor="last-name" className="form-label">
-          Last name
+        <label htmlFor="surname" className="form-label">
+          Surname
         </label>
         <input
           type="text"
-          name="last-name"
-          id="last-name"
+          value={userData.surname}
+          id="surname"
           className="form-control"
-          placeholder="Enter your last name"
+          placeholder="Enter your surname"
           autoComplete="off"
+          onChange={onChange}
           required
         />
       </div>
@@ -39,11 +48,11 @@ const FormOne = () => {
         </label>
         <input
           type="date"
-          name="birthday"
           id="birthday"
           className="form-control"
-          placeholder="birthday"
+          placeholder="Enter your birthday"
           autoComplete="off"
+          onChange={onChange}
           required
         />
         {years ? <p> You have {years} years.</p> : ""}
@@ -54,11 +63,12 @@ const FormOne = () => {
         </label>
         <input
           type="email"
-          name="email"
+          value={userData.email}
           className="form-control"
           id="email"
           placeholder="Enter your email"
           autoComplete="off"
+          onChange={onChange}
           required
         />
       </div>
@@ -66,7 +76,7 @@ const FormOne = () => {
         type="submit"
         value="Submit"
         className="btn btn-outline-primary d-block w-10 m-2"
-        onClick={() => {}}
+        // onClick={() => {}}
       />
     </form>
   );

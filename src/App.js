@@ -2,17 +2,18 @@ import "./App.css";
 // import { Button, Form, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
-import Context from "./components/Context/Context";
 import FormOne from "./components/FormOne/FormOne";
 import FormTwo from "./components/FormTwo/FormTwo";
 import FormThree from "./components/FormThree/FormThree";
+import Context from "./components/Context/Context";
 
 function App() {
   const [page, setPage] = useState(0);
-  const [userData] = useState({
+
+  const [userData, setUserData] = useState({
     name: "",
     surname: "",
-    bithdate: "",
+    birthday: "",
     email: "",
     username: "",
     password: "",
@@ -33,13 +34,18 @@ function App() {
     }
   };
 
+  const onChange = (event) => {
+    setUserData({
+      ...userData,
+      [event.target.id]: event.target.value,
+    });
+  };
+
   return (
     <Context.Provider
-      value={{ page, setPage, nextPage, previousPage, userData }}
+      value={{ page, setPage, nextPage, previousPage, userData, onChange }}
     >
-      <div className="App ">
-        <FormTwo />
-      </div>
+      <div className="App "></div>
       {page === 0 && <FormOne />}
       {page === 1 && <FormTwo />}
       {page === 2 && <FormThree />}
