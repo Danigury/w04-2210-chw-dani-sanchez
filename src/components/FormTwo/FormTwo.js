@@ -4,19 +4,18 @@ import { useContext, useState } from "react";
 
 const FormTwo = () => {
   const { nextPage, previousPage, userData, onChange } = useContext(Context);
-  const [error, setError] = useState(true);
-  const previousOnClick = () => {
-    previousPage();
-  };
-
+  const [error, setError] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (userData.password !== userData.repeatPassword) {
-      setError(false);
+
+    if (userData.password === userData.repeatPassword) {
       nextPage();
     } else {
       setError(true);
     }
+  };
+  const previousOnClick = () => {
+    previousPage();
   };
 
   return (
@@ -51,14 +50,14 @@ const FormTwo = () => {
         />
       </div>
       <div className="mb-2 col-sm-10">
-        <label htmlFor="repeat-password" className="col-sm-2 col-form-label">
+        <label htmlFor="repeatPassword" className="col-sm-2 col-form-label">
           Repeat Password
         </label>
         <input
-          type="repeat-password"
+          type="password"
           value={userData.repeatPassword}
           className="form-control"
-          id="repeat-password"
+          id="repeatPassword"
           onChange={onChange}
           required
         />
@@ -76,6 +75,7 @@ const FormTwo = () => {
         className="btn btn-outline-secondary d-block w-10 m-2"
         onClick={previousOnClick}
       />
+      <pre>{JSON.stringify(userData, null, 2)}</pre>
     </form>
   );
 };
