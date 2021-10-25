@@ -13,9 +13,10 @@ const FormThree = () => {
   const [showingDetails, setShowingDetails] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
+
     if (
-      userData.username === userData.usernameLogin &&
-      userData.password === userData.passwordLogin
+      userData.username === userData.loginUsername &&
+      userData.password === userData.loginPassword
     ) {
       setShowingDetails(true);
     } else {
@@ -27,13 +28,13 @@ const FormThree = () => {
     <form className="form" onSubmit={handleSubmit}>
       <h1>Log In</h1>
       <div className="mb-2 col-sm-10">
-        <label htmlFor="nombreUsuarioLogin" className="form-label">
+        <label htmlFor="loginUsername" className="form-label">
           Username
         </label>
         <input
           type="text"
-          value={userData.usernameLogin}
-          id="nombreUsuarioLogin"
+          value={userData.loginUsername}
+          id="loginUsername"
           className="form-control"
           placeholder="Username"
           autoComplete="off"
@@ -42,14 +43,14 @@ const FormThree = () => {
         />
       </div>
       <div className="mb-2 col-sm-10">
-        <label htmlFor="contraseña" className="col-sm-2 col-form-label">
+        <label htmlFor="loginPassword" className="col-sm-2 col-form-label">
           Password
         </label>
         <input
           type="password"
           value={userData.passwordLogin}
           className="form-control"
-          id="contraseña"
+          id="loginPassword"
           onChange={onChange}
           required
         />
@@ -78,7 +79,6 @@ const FormThree = () => {
         onClick={previousOnClick}
       />
       {showingDetails ? <UserDetails /> : ""}
-      <pre>{JSON.stringify(userData, null, 2)}</pre>
     </form>
   );
 };

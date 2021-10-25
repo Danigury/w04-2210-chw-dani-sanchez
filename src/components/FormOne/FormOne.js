@@ -79,7 +79,6 @@ const FormOne = () => {
         className="btn btn-outline-primary d-block w-10 m-2"
         // onClick={() => {}}
       />
-      <pre>{JSON.stringify(userData, null, 2)}</pre>
     </form>
   );
 };

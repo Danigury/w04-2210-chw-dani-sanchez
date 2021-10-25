@@ -18,8 +18,8 @@ function App() {
     username: "",
     password: "",
     repeatPassword: "",
-    usernameLogin: "",
-    passwordLogin: "",
+    loginUsername: "",
+    loginPassword: "",
   });
 
   const nextPage = () => {
