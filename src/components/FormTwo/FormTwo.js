@@ -75,7 +75,6 @@ const FormTwo = () => {
         className="btn btn-outline-secondary d-block w-10 m-2"
         onClick={previousOnClick}
       />
-      <pre>{JSON.stringify(userData, null, 2)}</pre>
     </form>
   );
 };
